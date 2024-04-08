@@ -4,7 +4,7 @@ import re
 import boto3
 
 # Environments (targeted at accounts)
-DEPLOYMENT = 'Deploy'
+DEPLOYMENT = 'Deployment'
 DEV = 'Dev'
 TEST = 'Test'
 PROD = 'Prod'
@@ -102,7 +102,7 @@ def get_local_configuration(environment: str, local_mapping: dict = None) -> dic
                 # Use only if you do NOT use Github or CodeCommit and need to mirror your repository
                 # Name your CodeCommit mirror repo here (recommend matching your external repo)
                 # Leave empty if you use Github or your repository is in CodeCommit already
-                CODECOMMIT_MIRROR_REPOSITORY_NAME: 'aws-insurancelake-infrastructure',
+                CODECOMMIT_MIRROR_REPOSITORY_NAME: '', #'aws-insurancelake-infrastructure',
 
                 # This is used in the Logical Id of CloudFormation resources.
                 # We recommend Capital case for consistency, e.g. DataLakeCdkBlog
@@ -114,7 +114,7 @@ def get_local_configuration(environment: str, local_mapping: dict = None) -> dic
                 RESOURCE_NAME_PREFIX: 'insurancelake',
             },
             DEV: {
-                ACCOUNT_ID: active_account_id,
+                ACCOUNT_ID: '471112642074',
                 REGION: 'ca-central-1',
                 VPC_CIDR: '11.20.0.0/24',
                 CODE_BRANCH: 'dev',

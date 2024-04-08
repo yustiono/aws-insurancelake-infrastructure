@@ -33,6 +33,7 @@ else:
     }
     logical_id_prefix = get_logical_id_prefix()
 
+
     if raw_mappings[DEPLOYMENT][CODECOMMIT_MIRROR_REPOSITORY_NAME] != '':
         mirror_repository_stack = CodeCommitStack(
             app,
@@ -61,7 +62,7 @@ else:
             env=deployment_aws_env,
         )
         tag(dev_pipeline_stack, DEPLOYMENT)
-
+    '''
     if os.environ.get('ENV', TEST) == TEST:
         target_environment = TEST
         test_account = raw_mappings[TEST][ACCOUNT_ID]
@@ -99,7 +100,7 @@ else:
             env=deployment_aws_env,
         )
         tag(prod_pipeline_stack, DEPLOYMENT)
-
+    '''
     # TODO: Modify replication bucket to have access logs and key rotation
     # Apply tagging to cross-region support stacks
     for stack in app.node.children:
