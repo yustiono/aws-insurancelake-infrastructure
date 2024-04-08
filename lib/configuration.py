@@ -206,7 +206,7 @@ def get_all_configurations() -> dict:
     return {
         DEPLOYMENT: {
             ENVIRONMENT: DEPLOYMENT,
-            GITHUB_TOKEN: '/InsuranceLake/GitHubToken',
+            GITHUB_TOKEN: '/DataLake/GitHubToken',
             **get_local_configuration(DEPLOYMENT),
         },
         DEV: get_environment_configuration(DEV),
